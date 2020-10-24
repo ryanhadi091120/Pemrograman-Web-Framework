@@ -1,0 +1,86 @@
+-- Database: db_blog
+
+-- DROP DATABASE db_blog;
+
+CREATE DATABASE db_blog
+    WITH 
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'Indonesian_Indonesia.1252'
+    LC_CTYPE = 'Indonesian_Indonesia.1252'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1;
+
+
+-- Table: public.tbl_kategori
+
+-- DROP TABLE public.tbl_kategori;
+
+CREATE TABLE public.tbl_kategori
+(
+    kode character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    nama character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT tbl_kategori_pkey PRIMARY KEY (kode)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.tbl_kategori
+    OWNER to postgres;
+
+
+-- Table: public.tbl_bloginfo
+
+-- DROP TABLE public.tbl_bloginfo;
+
+CREATE TABLE public.tbl_bloginfo
+(
+    id integer NOT NULL DEFAULT nextval('tbl_bloginfo_id_seq'::regclass),
+    namablog character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    about text COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT tbl_bloginfo_pkey PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.tbl_bloginfo
+    OWNER to postgres;
+
+
+-- SEQUENCE: public.tbl_bloginfo_id_seq
+
+-- DROP SEQUENCE public.tbl_bloginfo_id_seq;
+
+CREATE SEQUENCE public.tbl_bloginfo_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 9223372036854775807
+    CACHE 1;
+
+ALTER SEQUENCE public.tbl_bloginfo_id_seq
+    OWNER TO postgres;
+
+
+-- Table: public.tbl_user
+
+-- DROP TABLE public.tbl_user;
+
+CREATE TABLE public.tbl_user
+(
+    username character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    fullname character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    paswd text COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT tbl_user_pkey PRIMARY KEY (username)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.tbl_user
+    OWNER to postgres;
