@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+</head>
+<body>
+    <% if(subdata.statusSignup != '') { %>
+        <p>
+            <%= subdata.statusSignup %>
+        </p>
+    <% } %>
+    <form action="daftar" method="post">
+        <p><input type="text" name="fullname" id=""> Nama Lengkap </p>
+        <p><input type="text" name="username" id=""> Nama User </p>
+        <p><input type="password" name="paswd" id=""> Password </p>
+        <p><input type="submit" value="Sign Up"></p>
+    </form>
+</body>
+</html>
